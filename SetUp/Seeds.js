@@ -119,6 +119,7 @@ const seedDatabase = async () => {
 
 // Delete Previous MongoDB data
 await Job.deleteMany({});
+await User.deleteMany({});
 
 // Seeding here.
 seedDatabase();

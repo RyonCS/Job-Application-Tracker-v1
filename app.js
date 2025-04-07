@@ -4,6 +4,11 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import path from 'path';
 import methodOverride from 'method-override';
+import jobRoutes from './Routes/jobRoute.js';
+import authRoutes from './Routes/authRoute.js';
+import passport from 'passport';
+import localStrategy from 'passport-local';
+
 
 // Connecting the the MongDB database.
 dotenv.config();
@@ -25,11 +30,15 @@ app.set('view engine', 'ejs');
 // Setting up middleware.
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+// app.use(session(sessionConfig));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-// Importing Routes
-import jobRoutes from './Routes/jobRoute.js';
-import authRoutes from './Routes/authRoute.js';
-app.use('/api/jobs', jobRoutes);
-app.use('/api/auth', authRoutes)
+app.use('/', jobRoutes);
+app.use('/', authRoutes);
+
+app.get('/', (req, res) => {
+    res.redirect('/login');
+})
 
 export default app;

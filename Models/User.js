@@ -1,17 +1,14 @@
 import mongoose from 'mongoose';
+import passportLocalMongoose from 'passport-local-mongoose';
+const Schema = mongoose.Schema;
 
 // User Schema for MongoDB.
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
     {
-        _id: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true
-        },
         emailAddress: {
             type: String,
             required: true,
             unique: true,
-            lowercase: true
         },
         password: {
             type: String,
@@ -23,7 +20,7 @@ const userSchema = new mongoose.Schema(
         }
     }
 );
+// Adds username and password to schema.
+//userSchema.plugin(passportLocalMongoose);
 
-const User = mongoose.model('User', userSchema);
-
-export default User;
+export default mongoose.model('User', userSchema);
