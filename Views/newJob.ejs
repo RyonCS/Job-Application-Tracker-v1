@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new job!</title>
+</head>
+<body>
+    <h1>Add a New Job!</h1>
+    <form action="/myJobs" method="POST">
+        <input type="text" name="company" id="company" placeholder="Company">
+
+        <input type="text" name="position" id="position" placeholder="Position">
+        <input type="text" name="location" id="location" placeholder="Location">
+
+        <select name="status", id="status">
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+        </select>
+        <button>Submit</button>
+    </form>
+    
+</body>
+</html>
