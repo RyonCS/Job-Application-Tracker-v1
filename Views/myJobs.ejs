@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1> My Jobs </h1>
+    <form action="/logout" method="post">
+      <button>Log Out</button>
+    </form>
     
     <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
         <thead>
@@ -20,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <% for (job of user1jobs) { %>
+          <% for (job of userJobs) { %>
             <tr>
               <td><%= new Date(job.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></td>
               <td><%= job.company %></td>

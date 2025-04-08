@@ -10,17 +10,14 @@ const userSchema = new Schema(
             required: true,
             unique: true,
         },
-        password: {
-            type: String,
-            required: true
-        },
         createdAt: {
             type: Date,
             default: Date.now
         }
     }
 );
-// Adds username and password to schema.
-//userSchema.plugin(passportLocalMongoose);
+
+// Adds username and password to schema; setting username as email address.
+userSchema.plugin(passportLocalMongoose, {usernameField: 'emailAddress'});
 
 export default mongoose.model('User', userSchema);

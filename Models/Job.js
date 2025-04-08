@@ -3,26 +3,21 @@ import mongoose from 'mongoose';
 // Job Schema for MongoDB.
 const jobSchema = new mongoose.Schema(
     {
-        _id: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true
-        },
         date: {
             type: Date,
             default: Date.now,
-            required: true
         },
         company: {
             type: String,
-            required: true
+            default: "N/A"
         },
         position: {
             type: String,
-            required: true
+            default: "N/A"
         },
         location: {
             type: String,
-            required: true
+            default: "N/A"
         },
         status: {
             type: String,
