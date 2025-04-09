@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a new job!</title>
+    <title>Edit a Job!</title>
 </head>
 <body>
-    <h1>Add a New Job!</h1>
+    <h1>Edit a Job!</h1>
     <form action="/myJobs/<%=job._id%>?_method=PUT" method="POST">
         <input type="text" name="company" id="company" placeholder="<%=job.company %>" value="<%=job.company %>">
 

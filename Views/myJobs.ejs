@@ -6,12 +6,9 @@
     <title>MyJobs</title>
 </head>
 <body>
-    <h1> My Jobs </h1>
-    <form action="/logout" method="post">
-      <button>Log Out</button>
-    </form>
+    <h1 style="text-align: center;"> My Jobs </h1>
     
-    <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
         <thead>
           <tr>
             <th>Date</th>
@@ -48,5 +45,9 @@
           </tr>
         </tbody>
       </table>
+
+      <form action="/logout" method="post">
+        <button style="padding-top: 15;">Log Out</button>
+      </form>
 </body>
 </html>
