@@ -5,7 +5,7 @@ A full-stack web application for managing and tracking job applications. Built u
 ---
 
 ## Overview
-The **Job Tracker** lets user:
+The **Job Tracker** lets users:
 - Register and log in with a secure session.
 - Track and manage their job applications.
 - View job application data in a clean and structured format.
@@ -44,6 +44,8 @@ Users register and log in using their **email address**. Authentication is handl
 
 ## To-Do and Future Improvements
 - Add support for filtering and sorting jobs based on data, title, location, and position.
+- Support for editing job fields on the Job's homepage.
+- More job fields for storing notes and a link to the job posting.
 - Improve the UI with more modern design libraries.
 - Add unit/integration tests.
 
@@ -53,16 +55,28 @@ Users register and log in using their **email address**. Authentication is handl
 <b>Login Page</b>
 </p>
 
-![Level Editor](./Media/LoginPage.png)
+![Login Page](./Media/LoginPage.png)
 
 <p align="center">
-<b>Simple Level Creation</b>
+<b>Register Page</b>
 </p>
 
-![Simple Level Creation](./Screenshots/SimpleLevel.jpg)
+![Register Page](./Media/RegisterPage.png)
 
 <p align="center">
-<b>Complex Level Creation</b>
+<b>Jobs Homepage</b>
 </p>
 
-![Complex Level Creation](./Screenshots/ComplexLevel.jpg)
+![Jobs Homepage](./Media/MyJob_Homepage.png)
+
+<p align="center">
+<b>Jobs Homepage</b>
+</p>
+
+![Add New Job Page](./Media/AddNewJobPage.png)
+
+<p align="center">
+<b>Jobs Homepage</b>
+</p>
+
+![Edit Job Page](./Media/EditJobPage.png)
