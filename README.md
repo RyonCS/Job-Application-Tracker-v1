@@ -67,7 +67,7 @@ Users register and log in using their **email address**. Authentication is handl
 <b>Jobs Homepage</b>
 </p>
 
-![Jobs Homepage](./Media/MyJob_Homepage.png)
+![Jobs Homepage](./Media/MyJob_HomePage.png)
 
 <p align="center">
 <b>Jobs Homepage</b>
