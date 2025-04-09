@@ -57,9 +57,7 @@ Users register and log in using their **email address**. Authentication is handl
 
 ![Login Page](./Media/LoginPage.png)
 
-<p align="center">
-<b>Register Page</b>
-</p>
+<p align="center"><b>Register Page</b></p>
 
 <p align="center">
   <img src="./Media/RegisterPage.png" alt="Register Page" width="600"/>
