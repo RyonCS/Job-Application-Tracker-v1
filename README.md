@@ -51,11 +51,11 @@ Users register and log in using their **email address**. Authentication is handl
 
 ## Screenshots
 
-<p align="center">
-<b>Login Page</b>
-</p>
+<p align="center"><b>Login Page</b></p>
 
-![Login Page](./Media/LoginPage.png)
+<p align="center">
+  <img src="./Media/LoginPage.png" alt="Login Page" width="600"/>
+</p>
 
 <p align="center"><b>Register Page</b></p>
 
@@ -63,20 +63,20 @@ Users register and log in using their **email address**. Authentication is handl
   <img src="./Media/RegisterPage.png" alt="Register Page" width="600"/>
 </p>
 
-<p align="center">
-<b>Jobs Homepage</b>
-</p>
-
-![Jobs Homepage](./Media/MyJob_HomePage.png)
+<p align="center"><b>Jobs Homepage</b></p>
 
 <p align="center">
-<b>Jobs Homepage</b>
+  <img src="./Media/MyJob_HomePage.png" alt="Jobs Homepage" width="600"/>
 </p>
 
-![Add New Job Page](./Media/AddNewJobPage.png)
+<p align="center"><b>Add new Job Page</b></p>
 
 <p align="center">
-<b>Jobs Homepage</b>
+  <img src="./Media/AddNewJobPage.png" alt="Add New Job Page" width="600"/>
 </p>
 
-![Edit Job Page](./Media/EditJobPage.png)
+<p align="center"><b>Edit Job Page</b></p>
+
+<p align="center">
+  <img src="./Media/EditJobPage.png" alt="Add New Job Page" width="600"/>
+</p>
