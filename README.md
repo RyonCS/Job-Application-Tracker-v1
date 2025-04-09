@@ -61,7 +61,9 @@ Users register and log in using their **email address**. Authentication is handl
 <b>Register Page</b>
 </p>
 
-![Register Page](./Media/RegisterPage.png)
+<p align="center">
+  <img src="./Media/RegisterPage.png" alt="Register Page" width="600"/>
+</p>
 
 <p align="center">
 <b>Jobs Homepage</b>
