@@ -19,6 +19,7 @@
             <option value="Offer" <%=job.status === 'Offer' ? 'selected' : "" %>>Offer</option>
             <option value="Rejected" <%=job.status === 'Rejected' ? 'selected' : "" %>>Rejected</option>
         </select>
+        <input type="text" name="linkToPosting" id="linkToPosting" value="<%=job.linkToPosting %>">
         <button>Submit</button>
     </form>
     

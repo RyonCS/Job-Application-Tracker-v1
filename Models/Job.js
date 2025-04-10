@@ -24,6 +24,9 @@ const jobSchema = new mongoose.Schema(
             enum: ['Applied', 'Interview', 'Offer', 'Rejected'],
             default: 'Applied'
         },
+        linkToPosting: {
+            type: String
+        },
         userId: {
             type: mongoose.Schema.Types.ObjectId, 
             ref: 'User',
