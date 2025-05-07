@@ -11,6 +11,7 @@ import passport from 'passport';
 import localStrategy from 'passport-local';
 import User from './src/Models/User.js';
 import MongoStore from 'connect-mongo';
+import fs from 'fs';
 dotenv.config();
 
 // Connecting to MongoDB.
