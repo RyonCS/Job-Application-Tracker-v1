@@ -4,12 +4,12 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import path from 'path';
 import methodOverride from 'method-override';
-import jobRoutes from './src/Routes/jobRoute.js';
-import authRoutes from './src/Routes/authRoute.js';
+import jobRoutes from './Routes/jobRoute.js';
+import authRoutes from './Routes/authRoute.js';
 import session from 'express-session';
 import passport from 'passport';
 import localStrategy from 'passport-local';
-import User from './src/Models/User.js';
+import User from './Models/User.js';
 import MongoStore from 'connect-mongo';
 dotenv.config();
 
@@ -25,7 +25,7 @@ const app = express();
 // Setting up use of EJS.
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-console.log(path.join(__dirname, 'src', 'views'));
+console.log(path.join(__dirname, 'views'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -61,8 +61,5 @@ passport.deserializeUser(User.deserializeUser());
 // Set up routes.
 app.use('/jobs', jobRoutes);
 app.use('/auth', authRoutes);
-app.get('/', (req, res) => {
-    res.render('login');
-})
 
 export default app;
