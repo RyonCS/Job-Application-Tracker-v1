@@ -26,9 +26,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // On Render, the views directory is in the root of the project (not inside src).
-const viewsPath = process.env.NODE_ENV === 'production' 
-    ? path.resolve(__dirname, 'views')  // For Render (production environment)
-    : path.resolve(__dirname, 'src', 'views'); // For local development
+const viewsPath = path.join(__dirname, 'src', 'views');
 
 console.log('Resolved Views Path:', viewsPath);
 
