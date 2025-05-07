@@ -1,6 +1,32 @@
 import Job from '../Models/Job.js'
 import mongoose from 'mongoose';
 
+function parseJobQueryParams(queryParams, userId) {
+    const sortMap = {
+        dateAsc: { date: 1 },
+        dateDesc: { date: -1 },
+        locationAsc: { location: 1 },
+        locationDesc: { location: -1 }
+    };
+
+    const sort = queryParams.sort;
+    const filter = queryParams.filter;
+    const search = queryParams.searchByCompany;
+
+    const sortOption = sortMap[sort] || { date: 1 };
+    const query = { userId };
+
+    if (filter === 'excludeRejected') {
+        query.status = { $ne: 'Rejected' };
+    }
+
+    if (search) {
+        query.company = { $regex: new RegExp(search, 'i') };
+    }
+
+    return { query, sortOption, sort, filter, search };
+}
+
 // Get and display all of the user's jobs.
 export const getAllJobs = async (req, res) => {
     // Get the current session ID - userID.
@@ -10,36 +36,10 @@ export const getAllJobs = async (req, res) => {
         return res.redirect('/auth/login');
     }
 
-    let sort = req.query.sort || 'dateAsc';
-    let filter = req.query.filter || '';
-
-    let sortOption = {};
-    switch (sort) {
-        case 'dateAsc':
-            sortOption = { date: 1 };
-            break;
-        case 'dateDesc':
-            sortOption = { date: -1 };
-            break;
-        case 'locationAsc':
-            sortOption = { location: -1 };
-            break;
-        case 'locationDesc':
-            sortOption = { location: -1 };
-            break;
-        default:
-            sortOption = { date: 1 };
-    }
-    console.log(sortOption)
-    console.log(filter);
-
-    const query = { userId: loggedInUserID };
-    if (filter === 'excludeRejected') {
-        query.status = { $ne: 'Rejected' }; 
-    }
+    const { query, sortOption, sort, filter, search } = parseJobQueryParams(req.query, loggedInUserID);
 
     const userJobs = await Job.find(query).sort(sortOption);
-    res.render('myJobs', { userJobs, sort, filter });
+    res.render('myJobs', { userJobs, sort, filter, search });
 }
 
 // Display the new Job Page.

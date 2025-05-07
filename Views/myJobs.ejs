@@ -15,14 +15,18 @@
 <body>
     <h1 style="text-align: center;"> My Jobs </h1>
 
-
-    
     <form style="padding-bottom: 5px;" method="GET" action="/jobs/myJobs">
+      <input type="hidden" name="sort" value="<%= sort %>">
       <label for="filter">Filter Out Rejected?</label>
       <input type="checkbox" name="filter" id="filter" value="excludeRejected" onchange="this.form.submit()" <%=filter === 'excludeRejected' ? 'checked' : ''  %>>
     </form>
-
-    <br>
+    
+    <form style="padding-bottom: 5px;" method="GET" action="/jobs/myJobs">
+      <input type="hidden" name="filter" value="<%= filter %>">
+      <input type="hidden" name="sort" value="<%= sort %>">
+      <input type="text" placeholder="Search by Company..." name="searchByCompany" id="searchByCompany">
+      <button>Search</button>
+    </form>
 
     <form style="padding-bottom: 5px;" method="GET" action="/jobs/myJobs">
       <input type="hidden" name="filter" value="<%= filter %>">
@@ -30,6 +34,10 @@
         <option value="dateAsc" <%= sort === 'dateAsc' ? 'selected' : '' %>>Date (Oldest)</option>
         <option value="dateDesc" <%= sort === 'dateDesc' ? 'selected' : '' %>>Date (Newest)</option>
       </select>
+    </form>
+
+    <form method="GET" action="/jobs/myJobs" >
+      <button> Refresh </button>
     </form>
     
     
