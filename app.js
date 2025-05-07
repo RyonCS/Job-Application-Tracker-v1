@@ -4,12 +4,12 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import path from 'path';
 import methodOverride from 'method-override';
-import jobRoutes from './Routes/jobRoute.js';
-import authRoutes from './Routes/authRoute.js';
+import jobRoutes from './src/Routes/jobRoute.js';
+import authRoutes from './src/Routes/authRoute.js';
 import session from 'express-session';
 import passport from 'passport';
 import localStrategy from 'passport-local';
-import User from './Models/User.js';
+import User from './src/Models/User.js';
 import MongoStore from 'connect-mongo';
 dotenv.config();
 
@@ -24,7 +24,7 @@ const app = express();
 
 // Setting up use of EJS.
 const __filename = fileURLToPath(import.meta.url);
-app.set('views', path.join(process.cwd(), 'views'));
+app.set('views', path.join(process.cwd(), 'src', 'views'));
 app.set('view engine', 'ejs');
 
 // Setting up middleware.
