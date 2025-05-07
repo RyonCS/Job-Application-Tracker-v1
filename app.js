@@ -24,11 +24,16 @@ const app = express();
 
 // Setting up use of EJS.
 const __filename = fileURLToPath(import.meta.url);
-app.set('views', path.join(process.cwd(), 'views'));
+const __dirname = path.dirname(__filename);
+// Use path.resolve to ensure the views directory is always correctly resolved
+const viewsPath = path.resolve(__dirname, 'views');
+
+// For debugging purposes, you can log the resolved path
+console.log('Resolved Views Path:', viewsPath);
+
+// Set up the views directory correctly
+app.set('views', viewsPath);
 app.set('view engine', 'ejs');
-console.log('Current directory:', __dirname);
-console.log('Process cwd:', process.cwd());
-console.log('Views folder path:', path.join(process.cwd(), 'src', 'views'));
 
 // Setting up middleware.
 app.use(express.urlencoded({ extended: true }));
