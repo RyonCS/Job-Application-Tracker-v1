@@ -29,6 +29,14 @@ const __dirname = path.dirname(__filename);
 const viewsPath = path.join(__dirname, 'views');
 
 console.log('Resolved Views Path:', viewsPath);
+console.log('❯ Root dir contents:', fs.readdirSync(__dirname));  
+// If this prints [ 'src', 'package.json', 'app.js', … ] then __dirname is project root.
+
+console.log('❯ src dir contents:', fs.readdirSync(path.join(__dirname, 'src')));
+// This should list [ 'index.js', 'Routes', 'Models', 'views', … ]
+
+console.log('❯ views dir contents:', fs.readdirSync(path.join(__dirname, 'src', 'views')));
+// This should list [ 'login.ejs', … ]
 
 // Set up the views directory
 app.set('views', viewsPath);
