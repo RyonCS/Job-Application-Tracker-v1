@@ -69,7 +69,7 @@ app.use('/auth', authRoutes);
 
 // Home route
 app.get('/', (req, res) => {
-    res.render('login');
+    res.render('login.ejs');
 });
 
 export default app;
