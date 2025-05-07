@@ -4,12 +4,13 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import path from 'path';
 import methodOverride from 'method-override';
-import jobRoutes from './src/Routes/jobRoute.js';
-import authRoutes from './src/Routes/authRoute.js';
+import jobRoutes from './Routes/jobRoute.js';
+import authRoutes from './Routes/authRoute.js';
 import session from 'express-session';
 import passport from 'passport';
 import localStrategy from 'passport-local';
-import User from './src/Models/User.js';
+import User from './Models/User.js';
+import MongoStore from 'connect-mongo';
 dotenv.config();
 
 // Connecting the the MongoDB database.
@@ -37,6 +38,10 @@ const sessionConfig = {
     secret: sessionSecret,
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: dbURI,
+        collectionName: 'sessions'
+    }),
     cookie: {
         httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
