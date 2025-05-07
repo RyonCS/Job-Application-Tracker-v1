@@ -26,6 +26,9 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 app.set('views', path.join(process.cwd(), 'views'));
 app.set('view engine', 'ejs');
+console.log('Current directory:', __dirname);
+console.log('Process cwd:', process.cwd());
+console.log('Views folder path:', path.join(process.cwd(), 'src', 'views'));
 
 // Setting up middleware.
 app.use(express.urlencoded({ extended: true }));
