@@ -24,28 +24,28 @@ export const login = async (req, res) => {
         const user = await User.findOne({ emailAddress : username });
         if (!user) {
             console.log("User not found");
-            return res.redirect('/login');
+            return res.redirect('/auth/login');
         }
 
         // Define passport authenticate without custom callback.
         passport.authenticate('local', (err, user) => {
             if (err || !user) {
-                return res.redirect('/login'); // Redirect on error or authentication failure.
+                return res.redirect('/auth/login'); // Redirect on error or authentication failure.
             }
         
             req.login(user, (err) => {
                 if (err) {
-                    return res.redirect('/login'); // Redirect if there’s an error logging in.
+                    return res.redirect('/auth/login'); // Redirect if there’s an error logging in.
                 }
         
                 req.session.user_id = user._id; // Save user ID in session.
-                return res.redirect('/myJobs'); // Redirect to the user's job page.
+                return res.redirect('/jobs/myJobs'); // Redirect to the user's job page.
             });
         })(req, res); // Trigger passport authentication.
 
     } catch (err) {
         console.log("Error during login process:", err);
-        return res.redirect('/login');
+        return res.redirect('/auth/login');
     }
 };
 
@@ -56,7 +56,7 @@ export const register = async (req, res) => {
         // Check if the email is already used by another user.
         const foundUser = await User.findOne({ emailAddress });
         // Change later.
-        if (foundUser) return res.status(400).send(`User already exists with email: ${emailAddress}`);
+        if (foundUser) return res.redictrect('/auth/login');
 
         // Create a new user and set sessionID to userId.
         const newUser = new User({ emailAddress });
@@ -64,14 +64,14 @@ export const register = async (req, res) => {
         await newUser.save();
         req.session.user_id = newUser._id;
 
-        return res.redirect('/myJobs');
+        return res.redirect('/jobs/myJobs');
     } catch (err) {
-        return res.redirect('/login');
+        return res.redirect('/auth/login');
     }
 }
 
 // Logout by destroying session and rerouting to login.
 export const logOut = (req, res) => {
     req.session.destroy();
-    return res.redirect('/login');
+    return res.redirect('/auth/login');
 }

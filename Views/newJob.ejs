@@ -7,21 +7,24 @@
 </head>
 <body>
     <h1>Add a New Job!</h1>
-    <form action="/myJobs" method="POST">
-        <input type="text" name="company" id="company" placeholder="Company">
+    <form action="/jobs/myJobs" method="POST" style="margin-bottom: 20px;">
+        <input type="date" name="date" placeholder="Date Applied">
+        <input type="text" name="company" placeholder="Company">
 
-        <input type="text" name="position" id="position" placeholder="Position">
-        <input type="text" name="location" id="location" placeholder="Location">
+        <input type="text" name="position" placeholder="Position">
+        <input type="text" name="location" placeholder="Location">
 
-        <select name="status", id="status">
+        <select name="status">
             <option value="Applied">Applied</option>
             <option value="Interview">Interview</option>
             <option value="Offer">Offer</option>
             <option value="Rejected">Rejected</option>
         </select>
-        <input type="text" name="linkToPosting" id="linkToPosting">
+        <input type="text" name="linkToPosting" placeholder="Link">
         <button>Submit</button>
     </form>
+
+    <a href="/jobs/myJobs">Back to My Jobs</a>
     
 </body>
 </html>

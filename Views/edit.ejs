@@ -7,13 +7,13 @@
 </head>
 <body>
     <h1>Edit a Job!</h1>
-    <form action="/myJobs/<%=job._id%>?_method=PUT" method="POST">
-        <input type="text" name="company" id="company" placeholder="<%=job.company %>" value="<%=job.company %>">
+    <form action="/jobs/myJobs/<%=job._id%>?_method=PUT" method="POST" style="margin-bottom:  20px;">
+        <input type="date" name="date" placeholder="<%=job.date %>" value="<%=job.date %>">
+        <input type="text" name="company" placeholder="<%=job.company %>" value="<%=job.company %>">
+        <input type="text" name="position" placeholder="<%=job.position %>" value="<%=job.position %>">
+        <input type="text" name="location" placeholder="<%=job.location %>" value="<%=job.location %>">
 
-        <input type="text" name="position" id="position" placeholder="<%=job.position %>" value="<%=job.position %>">
-        <input type="text" name="location" id="location" placeholder="<%=job.location %>" value="<%=job.location %>">
-
-        <select name="status" id="status">
+        <select name="status">
             <option value="Applied" <%=job.status === 'Applied' ? 'selected' : "" %>>Applied</option>
             <option value="Interview" <%=job.status === 'Interview' ? 'selected' : "" %>>Interview</option>
             <option value="Offer" <%=job.status === 'Offer' ? 'selected' : "" %>>Offer</option>
@@ -23,5 +23,7 @@
         <button>Submit</button>
     </form>
     
+    <a href="/jobs/myJobs">Back to My Jobs</a>
+
 </body>
 </html>

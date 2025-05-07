@@ -53,8 +53,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Set up routes.
-app.use('/', jobRoutes);
-app.use('/', authRoutes);
+app.use('/jobs', jobRoutes);
+app.use('/auth', authRoutes);
 app.get('/', (req, res) => {
     res.render('login');
 })

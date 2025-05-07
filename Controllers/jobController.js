@@ -7,12 +7,39 @@ export const getAllJobs = async (req, res) => {
     const loggedInUserID = req.session.user_id;
     // If session ID isnt found, redirect to login.
     if (!loggedInUserID) {
-        return res.redirect('/login');
+        return res.redirect('/auth/login');
     }
-    // If sessionID is found, get all user jobs and display.
-    const userJobs = await Job.find({ userId: req.session.user_id });
-    res.render('myJobs', { userJobs })
-    
+
+    let sort = req.query.sort || 'dateAsc';
+    let filter = req.query.filter || '';
+
+    let sortOption = {};
+    switch (sort) {
+        case 'dateAsc':
+            sortOption = { date: 1 };
+            break;
+        case 'dateDesc':
+            sortOption = { date: -1 };
+            break;
+        case 'locationAsc':
+            sortOption = { location: -1 };
+            break;
+        case 'locationDesc':
+            sortOption = { location: -1 };
+            break;
+        default:
+            sortOption = { date: 1 };
+    }
+    console.log(sortOption)
+    console.log(filter);
+
+    const query = { userId: loggedInUserID };
+    if (filter === 'excludeRejected') {
+        query.status = { $ne: 'Rejected' }; 
+    }
+
+    const userJobs = await Job.find(query).sort(sortOption);
+    res.render('myJobs', { userJobs, sort, filter });
 }
 
 // Display the new Job Page.
@@ -35,7 +62,7 @@ export const addNewJob = async (req, res) => {
     const newJob = new Job(newJobData);
     await newJob.save();
 
-    res.redirect('/myJobs');
+    res.redirect('/jobs/myJobs');
 }
 
 // Display edit job page.
@@ -50,13 +77,13 @@ export const editJob = async (req, res) => {
     // Get the id for the job and update it.
     const { _id } = req.params;
     const newJob = await Job.findByIdAndUpdate(_id, req.body, { runValidators: true });
-    res.redirect('/myJobs');
+    res.redirect('/jobs/myJobs');
 }
 
 // Delete a job.
 export const deleteJob = async (req, res) => {
-        // Get the id for the job and delete it.
+    // Get the id for the job and delete it.
     const { _id } = req.params;
     await Job.findByIdAndDelete(_id);
-    res.redirect('/myJobs');
+    res.redirect('/jobs/myJobs');
 }

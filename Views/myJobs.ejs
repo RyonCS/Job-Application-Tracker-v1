@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyJobs</title>
+
+    <style>
+      .rejected-status {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
 </head>
 <body>
     <h1 style="text-align: center;"> My Jobs </h1>
+
+
+    
+    <form style="padding-bottom: 5px;" method="GET" action="/jobs/myJobs">
+      <label for="filter">Filter Out Rejected?</label>
+      <input type="checkbox" name="filter" id="filter" value="excludeRejected" onchange="this.form.submit()" <%=filter === 'excludeRejected' ? 'checked' : ''  %>>
+    </form>
+
+    <br>
+
+    <form style="padding-bottom: 5px;" method="GET" action="/jobs/myJobs">
+      <input type="hidden" name="filter" value="<%= filter %>">
+      <select name="sort" onchange="this.form.submit()">
+        <option value="dateAsc" <%= sort === 'dateAsc' ? 'selected' : '' %>>Date (Oldest)</option>
+        <option value="dateDesc" <%= sort === 'dateDesc' ? 'selected' : '' %>>Date (Newest)</option>
+      </select>
+    </form>
+    
     
     <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
         <thead>
@@ -27,14 +52,14 @@
               <td><%= job.company %></td>
               <td><%= job.position %></td>
               <td><%= job.location %></td>
-              <td><%= job.status %></td>
+              <td class="<%= job.status === 'Rejected' ? 'rejected-status' : '' %>"><%= job.status %></td>
               <td><a href="<%= job.linkToPosting %>" target="_blank" rel="noopener noreferrer">View Job</a></td>
               <td>
                 <div style="display: flex; gap: 0.5rem;">
-                  <a href="/myJobs/<%= job._id %>/edit">
+                  <a href="/jobs/myJobs/<%= job._id %>/edit">
                     <button type="button">Edit</button>
                   </a>
-                  <form action="/myJobs/<%= job._id %>?_method=DELETE" method="POST" style="display:inline;">
+                  <form action="/jobs/myJobs/<%= job._id %>?_method=DELETE" method="POST" style="display:inline;">
                     <input type="hidden" name="userId" value="<%= job.userId %>">
                     <button type="submit">Delete</button>
                   </form>
@@ -43,12 +68,12 @@
             </tr>
           <% } %>
           <tr>
-            <td><a href="/new">Add a new job!</a></td>
+            <td><a href="/jobs/new">Add a new job!</a></td>
           </tr>
         </tbody>
       </table>
 
-      <form action="/logout" method="post">
+      <form action="/auth/logout" method="post">
         <button style="padding-top: 15;">Log Out</button>
       </form>
 </body>
