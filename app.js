@@ -4,12 +4,12 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import path from 'path';
 import methodOverride from 'method-override';
-import jobRoutes from './Routes/jobRoute.js';
-import authRoutes from './Routes/authRoute.js';
+import jobRoutes from './src/Routes/jobRoute.js';
+import authRoutes from './src/Routes/authRoute.js';
 import session from 'express-session';
 import passport from 'passport';
 import localStrategy from 'passport-local';
-import User from './Models/User.js';
+import User from './src/Models/User.js';
 dotenv.config();
 
 // Connecting the the MongoDB database.
