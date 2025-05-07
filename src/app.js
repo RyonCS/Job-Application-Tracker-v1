@@ -24,7 +24,7 @@ const app = express();
 
 // Setting up use of EJS.
 const __filename = fileURLToPath(import.meta.url);
-app.set('views', path.join(process.cwd(), 'src', 'views'));
+app.set('views', path.join(process.cwd(), 'views'));
 app.set('view engine', 'ejs');
 
 // Setting up middleware.
