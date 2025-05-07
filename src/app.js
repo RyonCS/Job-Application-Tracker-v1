@@ -24,9 +24,7 @@ const app = express();
 
 // Setting up use of EJS.
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-console.log(path.join(__dirname, 'views'));
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(process.cwd(), 'src', 'views'));
 app.set('view engine', 'ejs');
 
 // Setting up middleware.
@@ -61,5 +59,8 @@ passport.deserializeUser(User.deserializeUser());
 // Set up routes.
 app.use('/jobs', jobRoutes);
 app.use('/auth', authRoutes);
+app.get('/', (req, res) => {
+    res.render('login');
+})
 
 export default app;
