@@ -26,6 +26,10 @@ This app fcuses on user authentication, RESTful routing, form handling, session 
 
 ---
 
+## Recent Updates
+
+- 4/10/25: Added functionality so users can add links to the job postings. On their dashboard, the link will show up as "Link" rather than the entire URL.
+
 ## Tech Stack
 
 | Category       | Technology                  |
@@ -45,7 +49,6 @@ Users register and log in using their **email address**. Authentication is handl
 ## To-Do and Future Improvements
 - Add support for filtering and sorting jobs based on data, title, location, and position.
 - Support for editing job fields on the Job's homepage.
-- More job fields for storing notes and a link to the job posting.
 - Improve the UI with more modern design libraries.
 - Add unit/integration tests.
 
