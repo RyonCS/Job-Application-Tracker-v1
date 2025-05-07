@@ -26,7 +26,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // On Render, the views directory is in the root of the project (not inside src).
-const viewsPath = path.join(__dirname, 'src', 'views');
+const viewsPath = path.join(__dirname, 'views');
 
 console.log('Resolved Views Path:', viewsPath);
 
@@ -69,7 +69,7 @@ app.use('/auth', authRoutes);
 
 // Home route
 app.get('/', (req, res) => {
-    res.render('login.ejs');
+    res.render('login');
 });
 
 export default app;
