@@ -13,33 +13,34 @@ import User from './src/Models/User.js';
 import MongoStore from 'connect-mongo';
 dotenv.config();
 
-// Connecting the the MongoDB database.
+// Connecting to MongoDB.
 const dbURI = process.env.MONGO_URI;
 mongoose.connect(dbURI)
     .then(() => console.log("Connected to MongoDB"))
     .catch(err => console.log("Error: ", err));
 
-// Starting up our express app.
+// Starting up express app.
 const app = express();
 
-// Setting up use of EJS.
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-// Use path.resolve to ensure the views directory is always correctly resolved
-const viewsPath = path.resolve(__dirname, 'views');
 
-// For debugging purposes, you can log the resolved path
+// On Render, the views directory is in the root of the project (not inside src).
+const viewsPath = process.env.NODE_ENV === 'production' 
+    ? path.resolve(__dirname, 'views')  // For Render (production environment)
+    : path.resolve(__dirname, 'src', 'views'); // For local development
+
 console.log('Resolved Views Path:', viewsPath);
 
-// Set up the views directory correctly
+// Set up the views directory
 app.set('views', viewsPath);
 app.set('view engine', 'ejs');
 
-// Setting up middleware.
+// Middleware setup.
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
-// Setting up express-session configuration.
+// Express-session configuration.
 const sessionSecret = process.env.SESSION_SECRET;
 const sessionConfig = {
     secret: sessionSecret,
@@ -54,7 +55,7 @@ const sessionConfig = {
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
-}
+};
 
 // Set up session and passport.
 app.use(session(sessionConfig));
@@ -64,11 +65,13 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// Set up routes.
+// Routes
 app.use('/jobs', jobRoutes);
 app.use('/auth', authRoutes);
+
+// Home route
 app.get('/', (req, res) => {
     res.render('login');
-})
+});
 
 export default app;
