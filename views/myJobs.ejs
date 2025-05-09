@@ -61,7 +61,8 @@
               <td><%= job.position %></td>
               <td><%= job.location %></td>
               <td class="<%= job.status === 'Rejected' ? 'rejected-status' : '' %>"><%= job.status %></td>
-              <td><a href="<%= job.linkToPosting %>" target="_blank" rel="noopener noreferrer">View Job</a></td>
+              <% let link = job.linkToPosting.startsWith('http') ? job.linkToPosting : 'https://' + job.linkToPosting; %>
+              <td><a href="<%= link%>" target="_blank" rel="noopener noreferrer">View Job</a></td>
               <td>
                 <div style="display: flex; gap: 0.5rem;">
                   <a href="/jobs/myJobs/<%= job._id %>/edit">
