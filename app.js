@@ -4,12 +4,12 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import path from 'path';
 import methodOverride from 'method-override';
-import jobRoutes from './src/Routes/jobRoute.js';
-import authRoutes from './src/Routes/authRoute.js';
+import jobRoutes from './routes/jobRoute.js';
+import authRoutes from './routes/authRoute.js';
 import session from 'express-session';
 import passport from 'passport';
 import localStrategy from 'passport-local';
-import User from './src/Models/User.js';
+import User from './models/User.js';
 import MongoStore from 'connect-mongo';
 import fs from 'fs';
 dotenv.config();
@@ -28,16 +28,6 @@ const __dirname = path.dirname(__filename);
 
 // On Render, the views directory is in the root of the project (not inside src).
 const viewsPath = path.join(__dirname, 'views');
-
-console.log('Resolved Views Path:', viewsPath);
-console.log('❯ Root dir contents:', fs.readdirSync(__dirname));  
-// If this prints [ 'src', 'package.json', 'app.js', … ] then __dirname is project root.
-
-console.log('❯ src dir contents:', fs.readdirSync(path.join(__dirname, 'src')));
-// This should list [ 'index.js', 'Routes', 'Models', 'views', … ]
-
-console.log('❯ views dir contents:', fs.readdirSync(path.join(__dirname, 'src', 'views')));
-// This should list [ 'login.ejs', … ]
 
 // Set up the views directory
 app.set('views', viewsPath);
@@ -81,4 +71,9 @@ app.get('/', (req, res) => {
     res.render('login');
 });
 
-export default app;
+const port = process.env.PORT || 3000;
+
+// Running our server.
+app.listen(port, () => {
+    console.log(`Listening on Port ${port}.`)
+})

@@ -7,7 +7,7 @@ import {
     getLoginPage,
     getRegisterPage,
     logOut
-} from '../Controllers/authController.js';
+} from '../controllers/authController.js';
 
 // Route to login page.
 router.get('/login', getLoginPage);

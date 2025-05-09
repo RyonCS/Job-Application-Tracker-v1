@@ -9,7 +9,7 @@ import {
     editJobPage,
     editJob,
     deleteJob
- } from '../Controllers/jobController.js';
+} from '../controllers/jobController.js';
 
 // Simple Get Route to render the homepage.
 router.get('/myJobs', getAllJobs);

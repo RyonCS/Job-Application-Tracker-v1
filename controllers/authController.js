@@ -1,4 +1,4 @@
-import User from '../Models/User.js'
+import User from '../models/User.js'
 import passport from 'passport';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -21,7 +21,7 @@ export const login = async (req, res) => {
     console.log("Attempting to log in with email:", username);
 
     try {
-        const user = await User.findOne({ emailAddress : username });
+        const user = await User.findOne({ emailAddress: username });
         if (!user) {
             console.log("User not found");
             return res.redirect('/auth/login');
@@ -32,12 +32,12 @@ export const login = async (req, res) => {
             if (err || !user) {
                 return res.redirect('/auth/login'); // Redirect on error or authentication failure.
             }
-        
+
             req.login(user, (err) => {
                 if (err) {
                     return res.redirect('/auth/login'); // Redirect if there’s an error logging in.
                 }
-        
+
                 req.session.user_id = user._id; // Save user ID in session.
                 return res.redirect('/jobs/myJobs'); // Redirect to the user's job page.
             });

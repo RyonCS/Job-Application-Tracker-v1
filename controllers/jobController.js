@@ -1,4 +1,4 @@
-import Job from '../Models/Job.js'
+import Job from '../models/Job.js'
 import mongoose from 'mongoose';
 
 function parseJobQueryParams(queryParams, userId) {

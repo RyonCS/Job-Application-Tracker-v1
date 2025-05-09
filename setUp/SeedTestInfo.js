@@ -1,6 +1,6 @@
 // Seeds.js - Responsible for seeding database with Users and Jobs for testing.
-import User from '../Models/User.js';
-import Job from '../Models/Job.js';
+import User from '../models/User.js';
+import Job from '../models/Job.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
@@ -20,7 +20,7 @@ const seedUsers = async () => {
                 _id: new mongoose.Types.ObjectId(),
                 emailAddress: 'TestUser1@yahoo.com',
                 password: 'TestUser1Password'
-                
+
             },
             {
                 _id: new mongoose.Types.ObjectId(),
