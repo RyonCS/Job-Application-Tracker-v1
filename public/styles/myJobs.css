@@ -1,0 +1,80 @@
+h1 {
+    text-align: center;
+}
+
+.filterAndSortOptions {
+    padding-bottom: 5px;
+}
+
+#mainJobsTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#mainJobsTable td,
+#mainJobsTable th {
+    border: 1px solid black;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.rejected-status {
+color: red;
+font-weight: bold;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0056b3; /* Bootstrap blue */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.2s;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.button-link:hover {
+  background-color: #007bff;
+}
+
+#actionsColumn {
+  display: flex;
+  justify-content: center; /* aligns the whole group in center */
+  gap: 20px;               /* spacing between buttons */
+  width: 100%;
+}
+
+#actionsColumn button {
+  flex: 1;                 /* grow equally */
+  max-width: 200px;        /* optional: cap size */
+  border: 1px solid black;
+  border-radius: 10%;
+}
+
+#deleteButton {
+    background-color: #A62C2C;
+    color: whitesmoke;
+    transition: background-color 0.2s;
+}
+
+#deleteButton:hover {
+    background-color: #E83F25;
+    color: whitesmoke;
+}
+
+#editButton {
+    background-color: #5a636a;
+    color: whitesmoke;
+    transition: background-color 0.2s;
+}
+
+#editButton:hover {
+    background-color: #6c757d;
+    color: whitesmoke;
+}

@@ -36,6 +36,7 @@ app.set('view engine', 'ejs');
 // Middleware setup.
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
 // Express-session configuration.
 const sessionSecret = process.env.SESSION_SECRET;
