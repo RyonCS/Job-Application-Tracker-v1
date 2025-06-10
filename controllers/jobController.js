@@ -50,15 +50,32 @@ export const newJobPage = (req, res) => {
 // Add a new job.
 export const addNewJob = async (req, res) => {
     // Create job and get userId from session.
-    const newJobId = new mongoose.Types.ObjectId()
     const loggedInUserID = req.session.user_id;
     const loggedInUserIDObject = new mongoose.Types.ObjectId(loggedInUserID);
+
+    // Add in time to date for better filtering.
+    if (req.body.date) {
+        const [year, month, day] = req.body.date.split("-");
+        const now = new Date();
+
+        req.body.date = new Date(
+            parseInt(year),
+            parseInt(month) - 1,
+            parseInt(day),
+            now.getHours(),
+            now.getMinutes(),
+            now.getSeconds()
+        );
+    } else {
+        req.body.date = new Date();
+    }
 
     // Create a new job.
     const newJobData = {
         ...req.body,
         userId: loggedInUserIDObject
     };
+
     const newJob = new Job(newJobData);
     await newJob.save();
 
