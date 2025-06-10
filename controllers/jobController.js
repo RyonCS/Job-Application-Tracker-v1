@@ -13,7 +13,7 @@ function parseJobQueryParams(queryParams, userId) {
     const filter = queryParams.filter;
     const search = queryParams.searchByCompany;
 
-    const sortOption = sortMap[sort] || { date: 1 };
+    const sortOption = sortMap[sort] || { date: -1 };
     const query = { userId };
 
     if (filter === 'excludeRejected') {

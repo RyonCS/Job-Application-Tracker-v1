@@ -1,17 +1,18 @@
-h1 {
-    text-align: center;
-}
-
 .filterAndSortOptions {
     padding-bottom: 5px;
+    
 }
+
 
 #mainJobsTable {
     border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
+    width: auto;
+    max-width: 1200px;
+    margin-top: 40px;
     border: 1px solid black;
-    text-align: center;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #mainJobsTable td,
@@ -19,6 +20,11 @@ h1 {
     border: 1px solid black;
     padding: 10px;
     font-family: 'Open Sans', sans-serif;
+}
+
+#mainJobsTable thead th {
+  text-align: left;
+  white-space: nowrap;
 }
 
 .rejected-status {
@@ -29,7 +35,7 @@ font-weight: bold;
 .button-link {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #0056b3; /* Bootstrap blue */
+  background-color: #0056b3;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -45,14 +51,14 @@ font-weight: bold;
 
 #actionsColumn {
   display: flex;
-  justify-content: center; /* aligns the whole group in center */
-  gap: 20px;               /* spacing between buttons */
+  justify-content: center;
+  gap: 20px;       
   width: 100%;
 }
 
 #actionsColumn button {
-  flex: 1;                 /* grow equally */
-  max-width: 200px;        /* optional: cap size */
+  flex: 1;              
+  max-width: 200px;     
   border: 1px solid black;
   border-radius: 10%;
 }
