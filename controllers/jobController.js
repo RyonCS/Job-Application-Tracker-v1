@@ -84,17 +84,52 @@ export const addNewJob = async (req, res) => {
 
 // Display edit job page.
 export const editJobPage = async (req, res) => {
-    const { _id } = req.params;
-    const job = await Job.findById(_id);
-    res.render('edit', ({ job }));
-}
+    console.log('Route params:', req.params);
+    console.log('Session user_id:', req.session.user_id);
+
+    const jobId = req.params._id;
+    const userId = req.session.user_id;
+
+    try {
+        const job = await Job.findById(jobId);
+        if (!job) {
+            return res.redirect('/jobs/myJobs'); 
+        }
+
+        if (!job.userId.equals(userId)) {
+            return res.redirect('/jobs/myJobs'); 
+        }
+
+        res.render('edit', { job });  
+
+    } catch (err) {
+        return res.redirect('/jobs/myJobs');
+    }
+};
 
 // Edit a job.
 export const editJob = async (req, res) => {
     // Get the id for the job and update it.
-    const { _id } = req.params;
-    const newJob = await Job.findByIdAndUpdate(_id, req.body, { runValidators: true });
-    res.redirect('/jobs/myJobs');
+    const jobId = req.params._id;
+    const userId = req.session.user_id;
+
+    try {
+        const job = await Job.findById(jobId);
+        if (!job) {
+            res.redirect('/jobs/myJobs');
+        }
+
+        if (!job.user.equals(userId)) {
+            res.redirect('/jobs/myJobs')
+        }
+
+        await Job.findByIdAndUpdate(jobId, req.body, { runValidators: true });
+
+        res.redirect('/jobs/myJobs')
+    } catch (err) {
+        console.error(err);
+        res.redirect('/jobs/myJobs')
+    }
 }
 
 // Delete a job.

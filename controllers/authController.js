@@ -17,28 +17,31 @@ export const getRegisterPage = (req, res) => {
 
 // Login function once user
 export const login = async (req, res) => {
-    const { username } = req.body;
-    console.log("Attempting to log in with email:", username);
+    // const { username, password } = req.body;
+    // console.log("Attempting to log in with email:", username);
+    // if (!username || !password) {
+    //     return res.status(400).send("Missing username or password");
+    // }
 
     try {
-        const user = await User.findOne({ emailAddress: username });
-        if (!user) {
-            console.log("User not found");
-            return res.redirect('/auth/login');
-        }
+        // const existingUser = await User.findOne({ emailAddress: username });
+        // if (!existingUser) {
+        //     console.log("User not found");
+        //     return res.redirect('/auth/login');
+        // }
 
         // Define passport authenticate without custom callback.
-        passport.authenticate('local', (err, user) => {
-            if (err || !user) {
+        passport.authenticate('local', (err, authenticatedUser) => {
+            if (err || !authenticatedUser) {
                 return res.redirect('/auth/login'); // Redirect on error or authentication failure.
             }
 
-            req.login(user, (err) => {
+            req.login(authenticatedUser, (err) => {
                 if (err) {
                     return res.redirect('/auth/login'); // Redirect if there’s an error logging in.
                 }
 
-                req.session.user_id = user._id; // Save user ID in session.
+                req.session.user_id = authenticatedUser._id; // Save user ID in session.
                 return res.redirect('/jobs/myJobs'); // Redirect to the user's job page.
             });
         })(req, res); // Trigger passport authentication.
