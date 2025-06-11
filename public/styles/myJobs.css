@@ -2,6 +2,19 @@
   padding-bottom: 5px;
 }
 
+#filterJobs {
+  border-collapse: collapse;
+  width: auto;
+  max-width: 1200px;
+  min-width: 1200px;
+  margin-top: 40px;
+  border: 1px solid black;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
 #mainJobsTable {
   border-collapse: collapse;
   width: auto;

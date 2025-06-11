@@ -23,6 +23,11 @@ const jobSchema = new mongoose.Schema({
     enum: ["Applied", "Interview", "Offer", "Rejected"],
     default: "Applied",
   },
+  workMode: {
+    type: String,
+    enum: ["In-Person", "Remote", "Hybrid"],
+    default: "In-Person",
+  },
   linkToPosting: {
     type: String,
   },

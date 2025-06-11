@@ -49,7 +49,7 @@ export const getAllJobs = async (req, res) => {
 export const newJobPage = (req, res) => {
   const date = new Date();
   console.log(date)
-  res.render("newJob", {date});
+  res.render("addJob", {date});
 };
 
 // Add a new job.
@@ -102,7 +102,7 @@ export const editJobPage = async (req, res) => {
       return res.redirect("/jobs/myJobs");
     }
 
-    res.render("edit", { job });
+    res.render("editJob", { job });
   } catch (err) {
     return res.redirect("/jobs/myJobs");
   }
