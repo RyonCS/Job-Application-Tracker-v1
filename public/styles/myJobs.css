@@ -1,25 +1,24 @@
 .filterAndSortOptions {
-    padding-bottom: 5px;
-    
+  padding-bottom: 5px;
 }
 
-
 #mainJobsTable {
-    border-collapse: collapse;
-    width: auto;
-    max-width: 1200px;
-    margin-top: 40px;
-    border: 1px solid black;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
+  border-collapse: collapse;
+  width: auto;
+  max-width: 1200px;
+  margin-top: 40px;
+  border: 1px solid black;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
 }
 
 #mainJobsTable td,
 #mainJobsTable th {
-    border: 1px solid black;
-    padding: 10px;
-    font-family: 'Open Sans', sans-serif;
+  border: 1px solid black;
+  padding: 10px;
+  font-family: "Open Sans", sans-serif;
 }
 
 #mainJobsTable thead th {
@@ -28,8 +27,8 @@
 }
 
 .rejected-status {
-color: red;
-font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 
 .button-link {
@@ -42,7 +41,7 @@ font-weight: bold;
   font-weight: bold;
   border: none;
   transition: background-color 0.2s;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .button-link:hover {
@@ -52,35 +51,35 @@ font-weight: bold;
 #actionsColumn {
   display: flex;
   justify-content: center;
-  gap: 20px;       
+  gap: 20px;
   width: 100%;
 }
 
 #actionsColumn button {
-  flex: 1;              
-  max-width: 200px;     
+  flex: 1;
+  max-width: 200px;
   border: 1px solid black;
   border-radius: 10%;
 }
 
 #deleteButton {
-    background-color: #A62C2C;
-    color: whitesmoke;
-    transition: background-color 0.2s;
+  background-color: #a62c2c;
+  color: whitesmoke;
+  transition: background-color 0.2s;
 }
 
 #deleteButton:hover {
-    background-color: #E83F25;
-    color: whitesmoke;
+  background-color: #e83f25;
+  color: whitesmoke;
 }
 
 #editButton {
-    background-color: #5a636a;
-    color: whitesmoke;
-    transition: background-color 0.2s;
+  background-color: #5a636a;
+  color: whitesmoke;
+  transition: background-color 0.2s;
 }
 
 #editButton:hover {
-    background-color: #6c757d;
-    color: whitesmoke;
+  background-color: #6c757d;
+  color: whitesmoke;
 }

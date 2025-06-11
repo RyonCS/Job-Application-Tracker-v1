@@ -3,64 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            text-align: center; 
-            flex-direction: column; 
-        }
+    <link href="/styles/registerPage.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Job Application Tracker - Log in</title>
 
-        .container {
-            padding: 80px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 400px;
-        }
-
-        input {
-            width: 75%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        h1 {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        h4 {
-            margin-top: 20px;
-        }
-    </style>
 </head>
 
 <body>
-    <h1>Welcome to Job Tracker</h1>
-    <div class="container">
+    <!-- Header -->
+    <header class="p-3 text-bg-dark">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Title centered -->
+                <h3 class="text-white m-0 mx-auto">Job Application Tracker</h3>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-center-wrapper">
+        <div class="register-box">
         <h1>Register</h1>
         <form action="/auth/register" method="POST">
-            <div style="margin-bottom: 15px;">
+            <div >
                 <input type="text" name="emailAddress" id="EmailAddress" placeholder="Email Address" required>
             </div>
-            <div style="margin-bottom: 15px;">
+            <div >
                 <input type="password" name="password" id="password" placeholder="Password" required>
             </div>
             <button class="btn btn-success">Register</button>
@@ -68,6 +35,7 @@
         <h4> 
             Have an account? <a href="/auth/login">Login Here</a>
         </h4>
+        </div>
     </div>
 
 

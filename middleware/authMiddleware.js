@@ -1,7 +1,7 @@
-import passport from 'passport';
+import passport from "passport";
 
-// not in use. 
-export const authenticateLocal = passport.authenticate('local', { 
-    failureFlash: true, 
-    failureRedirect: '/login' 
+// not in use.
+export const authenticateLocal = passport.authenticate("local", {
+  failureFlash: true,
+  failureRedirect: "/login",
 });

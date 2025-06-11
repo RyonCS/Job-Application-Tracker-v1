@@ -5,7 +5,9 @@ A full-stack web application for managing and tracking job applications. Built u
 ---
 
 ## Overview
+
 The **Job Tracker** lets users:
+
 - Register and log in with a secure session.
 - Track and manage their job applications.
 - View job application data in a clean and structured format.
@@ -32,13 +34,13 @@ This app fcuses on user authentication, RESTful routing, form handling, session 
 
 ## Tech Stack
 
-| Category       | Technology                  |
-|----------------|-----------------------------|
-| Frontend       | HTML, CSS, EJS              |
-| Backend        | Node.js, Express            |
-| Database       | MongoDB + Mongoose          |
-| Auth           | Passport.js + express-session |
-| Environment    | dotenv                      |
+| Category    | Technology                    |
+| ----------- | ----------------------------- |
+| Frontend    | HTML, CSS, EJS                |
+| Backend     | Node.js, Express              |
+| Database    | MongoDB + Mongoose            |
+| Auth        | Passport.js + express-session |
+| Environment | dotenv                        |
 
 ---
 
@@ -47,6 +49,7 @@ This app fcuses on user authentication, RESTful routing, form handling, session 
 Users register and log in using their **email address**. Authentication is handled with Passport Local Strategy and sessions.
 
 ## To-Do and Future Improvements
+
 - Add support for filtering and sorting jobs based on data, title, location, and position.
 - Support for editing job fields on the Job's homepage.
 - Improve the UI with more modern design libraries.
