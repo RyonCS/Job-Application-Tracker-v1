@@ -15,21 +15,9 @@ export const getRegisterPage = (req, res) => {
     res.render('register');
 }
 
-// Login function once user
+// Login function once user types in username and password.
 export const login = async (req, res) => {
-    // const { username, password } = req.body;
-    // console.log("Attempting to log in with email:", username);
-    // if (!username || !password) {
-    //     return res.status(400).send("Missing username or password");
-    // }
-
     try {
-        // const existingUser = await User.findOne({ emailAddress: username });
-        // if (!existingUser) {
-        //     console.log("User not found");
-        //     return res.redirect('/auth/login');
-        // }
-
         // Define passport authenticate without custom callback.
         passport.authenticate('local', (err, authenticatedUser) => {
             if (err || !authenticatedUser) {
@@ -45,7 +33,6 @@ export const login = async (req, res) => {
                 return res.redirect('/jobs/myJobs'); // Redirect to the user's job page.
             });
         })(req, res); // Trigger passport authentication.
-
     } catch (err) {
         console.log("Error during login process:", err);
         return res.redirect('/auth/login');
