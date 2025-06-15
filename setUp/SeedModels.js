@@ -1,5 +1,5 @@
 import User from "../Models/User.js";
-import Job from "../Models/Job.js";
+import Application from "../Models/Application.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
@@ -16,8 +16,8 @@ mongoose
 const addModels = async () => {
   try {
     await User.createIndexes();
-    await Job.createIndexes();
-    console.log("Indexes for User and Job models have been created.");
+    await Application.createIndexes();
+    console.log("Indexes for User and Application models have been created.");
   } catch (error) {
     console.log("Error: ", error);
   }

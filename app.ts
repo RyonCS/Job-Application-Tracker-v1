@@ -1,21 +1,21 @@
-import express from "express";
 import mongoose from "mongoose";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import path from "path";
 import methodOverride from "method-override";
-import jobRoutes from "./routes/jobRoute.js";
-import authRoutes from "./routes/authRoute.js";
+import applicationsRoutes from "./routes/applications-routes.js";
+import authRoutes from "./routes/auth-routes.js";
 import session from "express-session";
 import passport from "passport";
 import localStrategy from "passport-local";
 import User from "./models/User.js";
 import MongoStore from "connect-mongo";
+import express, { Request, Response } from 'express';
 import fs from "fs";
 dotenv.config();
 
 // Connecting to MongoDB.
-const dbURI = process.env.MONGO_URI;
+const dbURI: string = process.env.MONGO_URI ?? '';
 mongoose
   .connect(dbURI)
   .then(() => console.log("Connected to MongoDB"))
@@ -66,11 +66,11 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Routes
-app.use("/jobs", jobRoutes);
+app.use("/applications", applicationsRoutes);
 app.use("/auth", authRoutes);
 
 // Home route
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.render("login");
 });
 

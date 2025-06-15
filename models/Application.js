@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-// Job Schema for MongoDB.
-const jobSchema = new mongoose.Schema({
+// Application Schema for MongoDB.
+const applicationSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now,
@@ -38,6 +38,6 @@ const jobSchema = new mongoose.Schema({
   },
 });
 
-const Job = mongoose.model("Job", jobSchema);
+const Application = mongoose.model("Application", applicationSchema);
 
-export default Job;
+export default Application;

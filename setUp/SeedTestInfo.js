@@ -1,6 +1,6 @@
-// Seeds.js - Responsible for seeding database with Users and Jobs for testing.
+// Seeds.js - Responsible for seeding database with Users and Applications for testing.
 import User from "../models/User.js";
-import Job from "../models/Job.js";
+import Application from "../models/Application.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
@@ -58,12 +58,12 @@ const seedUsers = async () => {
   }
 };
 
-// Adds test jobs to the database.
-const seedJobs = async () => {
+// Adds test applications to the database.
+const seedApplications = async () => {
   try {
-    // An array of test Job Objects.
-    const testJobs = [
-      // User1 Jobs.
+    // An array of test Application Objects.
+    const testApplications = [
+      // User1 Applications.
       {
         _id: new mongoose.Types.ObjectId(),
         company: "Amazon",
@@ -80,7 +80,7 @@ const seedJobs = async () => {
         status: "Applied",
         userId: new mongoose.Types.ObjectId("67f02ba8e024e20e6705746b"),
       },
-      // User2Jobs.
+      // User2Applications.
       {
         _id: new mongoose.Types.ObjectId(),
         company: "Barnes and Noble",
@@ -91,23 +91,23 @@ const seedJobs = async () => {
       },
     ];
 
-    // Iterate through each Job Object to see if it already exists in the database.
+    // Iterate through each Application Object to see if it already exists in the database.
     // If it doesn't add it, if it does, console.log.
-    for (const jobData of testJobs) {
-      const foundJob = await Job.findOne({
-        company: jobData.company,
-        position: jobData.position,
-        userId: jobData.userId,
+    for (const applicationData of testApplications) {
+      const foundApplication = await Application.findOne({
+        company: applicationData.company,
+        position: applicationData.position,
+        userId: applicationData.userId,
       });
 
-      // If no dulicate job, add job to db.
-      if (!foundJob) {
-        const newJob = new Job(jobData);
-        await newJob.save();
-        console.log(`Added new job: ${jobData.company}`);
+      // If no dulicate application, add application to db.
+      if (!foundApplication) {
+        const newApplication = new Application(applicationData);
+        await newApplication.save();
+        console.log(`Added new application: ${applicationData.company}`);
       } else {
         console.log(
-          `ERROR: ${jobData.position} at ${jobData.company} already exists.`,
+          `ERROR: ${applicationData.position} at ${applicationData.company} already exists.`,
         );
       }
     }
@@ -116,15 +116,15 @@ const seedJobs = async () => {
   }
 };
 
-// Function to seed users and jobs.
+// Function to seed users and applications.
 const seedDatabase = async () => {
   await seedUsers();
-  await seedJobs();
+  await seedApplications();
   mongoose.disconnect();
 };
 
 // Delete Previous MongoDB data
-await Job.deleteMany({});
+await Application.deleteMany({});
 await User.deleteMany({});
 
 // Seeding here.
