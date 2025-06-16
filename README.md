@@ -1,4 +1,4 @@
-## Title: Job Tracker Web App
+## Title: Job Application Tracker Web App
 
 A full-stack web application for managing and tracking job applications. Built using Node.js, Express, MongoDB, Mongoose, EJS, and Passport.js, this project was designed to improve my skills in web development and demonstrate real-world functionality often seen in job-seeking platforms.
 
@@ -6,7 +6,7 @@ A full-stack web application for managing and tracking job applications. Built u
 
 ## Overview
 
-The **Job Tracker** lets users:
+The **Job Application Tracker** lets users:
 
 - Register and log in with a secure session.
 - Track and manage their job applications.
