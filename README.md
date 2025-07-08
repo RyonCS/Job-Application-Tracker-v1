@@ -2,8 +2,6 @@
 
 A full-stack web application for managing and tracking job applications. Built using Node.js, Express, MongoDB, Mongoose, EJS, and Passport.js, this project was designed to improve my skills in web development and demonstrate real-world functionality often seen in job-seeking platforms.
 
----
-
 ## Overview
 
 The **Job Tracker** lets users:
@@ -12,9 +10,8 @@ The **Job Tracker** lets users:
 - Track and manage their job applications.
 - View job application data in a clean and structured format.
 
-This app fcuses on user authentication, RESTful routing, form handling, session management, and backend data persistence.
+This app focuses on user authentication, RESTful routing, form handling, session management, and backend data persistence.
 
----
 
 ## Features
 
@@ -25,8 +22,6 @@ This app fcuses on user authentication, RESTful routing, form handling, session 
 - MongoDB integration for storing user and job data.
 - Mongoose integration for MongoDB communication and custom schemas.
 - MVC folder structure for clean and maintainable cose.
-
----
 
 ## Recent Updates
 
@@ -42,7 +37,6 @@ This app fcuses on user authentication, RESTful routing, form handling, session 
 | Auth        | Passport.js + express-session |
 | Environment | dotenv                        |
 
----
 
 ## Authentication
 
@@ -86,3 +80,11 @@ Users register and log in using their **email address**. Authentication is handl
 <p align="center">
   <img src="./Media/EditJobPage.png" alt="Add New Job Page" width="600"/>
 </p>
+
+## 🔐 License
+
+This project is licensed for **educational and portfolio use only**.
+
+Commercial use, redistribution, or derivative work is **not permitted** without written consent.
+
+📬 For inquiries, contact: RyonCS.
